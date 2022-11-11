@@ -1,24 +1,28 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Comment } from "../Comment/Comment";
-import { Grid } from "../Grid/Grid";
-import { comments } from "../../helpers/comments";
-import { useSelector } from "react-redux";
-import { selectFilter } from "../../redux/filterSlice.js";
-
-const getFilteredComments = ({ filter }) => {
-  const normalizedFilter = filter.toLowerCase();
-  return comments.filter((comment) =>
-    comment.content.toLowerCase().includes(normalizedFilter)
-  );
-};
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Comment } from '../Comment/Comment';
+import { Grid } from '../Grid/Grid';
+import { useSelector } from 'react-redux';
+import { selectFilter } from '../../redux/filterSlice.js';
+import { useGetCommentsQuery } from '../../redux/commentApi';
 
 export const Comments = () => {
+  const { data: comments = [], isSuccess } = useGetCommentsQuery();
   const filter = useSelector(selectFilter);
-  const filteredContacts = getFilteredComments(filter);
+
+  const getFilteredComments = () => {
+    const normalizedFilter = filter.toLowerCase();
+
+    return comments.filter(({ content }) =>
+      content.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+  const filteredContacts = getFilteredComments();
+
   return (
     <Grid>
-      {filteredContacts.length > 0 &&
+      {isSuccess &&
         filteredContacts.map((comment) => (
           <Comment key={comment.id} {...comment} />
         ))}
