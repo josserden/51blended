@@ -1,5 +1,4 @@
 import React, {
-  FC,
   ReactNode,
   DetailedHTMLProps,
   ButtonHTMLAttributes,

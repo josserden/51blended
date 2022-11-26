@@ -6,7 +6,7 @@ import { Button } from '../components/Button';
 
 const menu = [
   { id: 'home', name: 'home', path: '/' },
-  { id: 'news', name: 'news', path: '/news' },
+  { id: 'news', name: 'contacts', path: '/contacts' },
   { id: 'about', name: 'about', path: '/about' },
 ];
 

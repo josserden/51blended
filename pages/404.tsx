@@ -1,7 +1,7 @@
 const NotFound = () => {
   return (
-    <section className='flex items-center h-full sm:p-16 dark:bg-gray-900 dark:text-gray-100'>
-      <div className='container flex flex-col items-center justify-center px-5 mx-auto my-8 space-y-8 text-center sm:max-w-md'>
+    <section className='flex items-center min-h-screen sm:p-16 dark:bg-gray-900 dark:text-gray-100'>
+      <div className='container h-full flex flex-col items-center justify-center px-5 mx-auto my-8 space-y-8 text-center sm:max-w-md'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 512 512'
@@ -31,14 +31,6 @@ const NotFound = () => {
         <p className='text-3xl'>
           Looks like our services are currently offline
         </p>
-
-        <a
-          rel='noopener noreferrer'
-          href='#'
-          className='px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900'
-        >
-          Back to homepage
-        </a>
       </div>
     </section>
   );
